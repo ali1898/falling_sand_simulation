@@ -1,4 +1,4 @@
-import pygame, sys
+import pygame, sys, random
 from grid import Grid
 from particle import SandParticle
 from particle import RockParticle
@@ -12,21 +12,26 @@ class Simulation:
 
     def draw(self, window):
         self.grid.draw(window)
+        self.draw_brush(window)
 
     def add_particle(self, row, column):
         if self.mode == "sand":
-            particle = SandParticle
+            if random.random() < 0.15:
+                self.grid.add_particle(row, column, SandParticle)
         elif self.mode == "rock":
-            particle = RockParticle
+            self.grid.add_particle(row, column, RockParticle)
             
-        self.grid.add_particle(row, column, particle)
-    
     def remove_particle(self, row, column):
         self.grid.remove_particle(row, column)
     
     def update(self):
         for row in range(self.grid.rows - 2, -1, -1):
-            for column in range(self.grid.columns):
+            if row % 2 == 0:
+                column_range = range(self.grid.columns)
+            else:
+                column_range = reversed(range(self.grid.columns))
+
+            for column in column_range:
                particle = self.grid.get_cell(row, column) 
                if isinstance(particle, SandParticle):
                    new_pos = particle.update(self.grid, row, column)
@@ -83,3 +88,20 @@ class Simulation:
                     self.grid.remove_particle(current_row, current_col)
                 else:
                     self.add_particle(current_row, current_col)
+    
+    def draw_brush(self, window):
+        mouse_pos = pygame.mouse.get_pos()
+        column = mouse_pos[0] // self.cell_size
+        row = mouse_pos[1] // self.cell_size
+
+        brush_visual_size = self.brush_size * self.cell_size
+        color = (255, 255, 255)
+        
+        if self.mode == "rock":
+            color = (100, 100, 100)
+        elif self.mode == "sand":
+            color = (185, 142, 66)
+        elif self.mode == "erase":
+            color = (255, 105, 180)
+        
+        pygame.draw.rect(window, color, (column * self.cell_size, row * self.cell_size, brush_visual_size, brush_visual_size))
