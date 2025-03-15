@@ -24,3 +24,7 @@ class Grid:
     def add_particle(self, row, column, particle_type):
         if 0 <= row < self.rows and 0 <= column < self.columns:
             self.cells[row][column] = particle_type()
+    
+    def remove_particle(self, row, column):
+        if 0 <= row < self.rows and 0 <= column < self.columns:
+            self.cells[row][column] = None
