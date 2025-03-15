@@ -30,7 +30,7 @@ class Grid:
             self.cells[row][column] = None
     
     def is_cell_empty(self, row, column):
-        if 0<= row < self.rows and 0 <= column < self.columns:
+        if 0 <= row < self.rows and 0 <= column < self.columns:
             if self.cells[row][column] is None:
                 return True
             return False
