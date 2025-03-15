@@ -33,7 +33,10 @@ while True:
         # X coordinate
         column = pos[0] // CELL_SIZE
         Simulation.add_particle(row, column)
+
     # Updating State
+    Simulation.update()
+
     # Drawing the grid
     window.fill(GREY)
     Simulation.draw(window)
