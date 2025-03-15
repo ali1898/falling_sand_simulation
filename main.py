@@ -1,4 +1,4 @@
-import pygame, sys
+import pygame
 from simulation import Simulation
 
 
@@ -20,24 +20,8 @@ Simulation = Simulation(WINDOW_WIDTH, WINDOW_HEIGHT, CELL_SIZE)
 # Simulation Loop
 while True:
     # Event Handling
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_SPACE:
-                Simulation.restart()
-
-    # Get mouse button pressed on each frame
-    buttons = pygame.mouse.get_pressed()
-    if buttons[0]:
-        pos = pygame.mouse.get_pos()
-        # Y coordinate
-        row = pos[1] // CELL_SIZE
-        # X coordinate
-        column = pos[0] // CELL_SIZE
-        Simulation.add_particle(row, column)
-
+    Simulation.handle_controls()
+    
     # Updating State
     Simulation.update()
 
