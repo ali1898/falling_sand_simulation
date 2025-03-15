@@ -6,7 +6,7 @@ pygame.init()
 
 WINDOW_WIDTH = 800
 WINDOW_HEIGHT = 600
-CELL_SIZE = 20
+CELL_SIZE = 5
 FPS = 120
 GREY = (29, 29, 29)
 
