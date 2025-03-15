@@ -40,3 +40,8 @@ class Grid:
         if 0 <= row < self.rows and 0 <= column < self.columns:
             return self.cells[row][column]
         return None
+
+    def clear(self):
+        for row in range(self.rows):
+            for column in range(self.columns):
+                self.remove_particle(row, column)
