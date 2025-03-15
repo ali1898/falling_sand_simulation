@@ -4,7 +4,7 @@ import colorsys
 
 class SandParticle:
     def __init__(self):
-        self.color = (160, 153, 56)
+        self.color = self.random_color()
 
     def random_color(self):
         hue = random.uniform(0.1, 0.12) 
