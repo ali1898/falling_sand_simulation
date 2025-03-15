@@ -71,9 +71,3 @@ This project is divided into 10 steps:
 <p align="center">
 🎥 <a href="https://youtu.be/JKv6CwOiIlU">Watch the Video Tutorial on YouTube</a>
 </p>
-<br>
-<br>
-<p align="center">
-| 📺 <a href="https://www.youtube.com/channel/UC3ivOTE5EgpmF2DHLBmWIWg">My YouTube Channel</a>
-| 🌍 <a href="https://www.programmingwithnick.com">My Website</a> | <br>
-</p>
