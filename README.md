@@ -67,7 +67,7 @@ This project is divided into 10 steps:
 - Python 3.x
 - Pygame (Community Edition recommended for better performance)
 
-## Thank you Nick Koumaris (educ8s) for Tutorial
+## Thanks to Nick Koumaris (educ8s) for Tutorial:
 <p align="center">
 🎥 <a href="https://youtu.be/JKv6CwOiIlU">Watch the Video Tutorial on YouTube</a>
 </p>
