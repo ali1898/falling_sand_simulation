@@ -69,5 +69,9 @@ class Simulation:
             row = pos[1] // self.cell_size
             # X coordinate
             column = pos[0] // self.cell_size
-            self.add_particle(row, column)
+            
+            if self.mode == "erase":
+                self.grid.remove_particle(row, column)
+            else:
+                self.add_particle(row, column)
 
