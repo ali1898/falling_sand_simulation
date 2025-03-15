@@ -8,6 +8,7 @@ class Simulation:
         self.grid = Grid(width, height, cell_size)
         self.cell_size = cell_size
         self.mode = "sand"
+        self.brush_size = 3
 
     def draw(self, window):
         self.grid.draw(window)
@@ -70,8 +71,15 @@ class Simulation:
             # X coordinate
             column = pos[0] // self.cell_size
             
-            if self.mode == "erase":
-                self.grid.remove_particle(row, column)
-            else:
-                self.add_particle(row, column)
+            self.apply_brush(row, column) 
 
+    def apply_brush(self, row, column):
+        for r in range(self.brush_size):
+            for c in range(self.brush_size):
+                current_row = row + r
+                current_col = column + c
+                
+                if self.mode == "erase":
+                    self.grid.remove_particle(current_row, current_col)
+                else:
+                    self.add_particle(current_row, current_col)
