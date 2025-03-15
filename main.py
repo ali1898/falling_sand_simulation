@@ -16,6 +16,8 @@ pygame.display.set_caption("Falling Sand")
 # Control the frame rate of the simulation
 clock = pygame.time.Clock()
 Simulation = Simulation(WINDOW_WIDTH, WINDOW_HEIGHT, CELL_SIZE)
+Simulation.add_particle(0, 0)
+Simulation.add_particle(1, 1)
 
 # Simulation Loop
 while True:
